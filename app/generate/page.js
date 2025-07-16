@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import Link from 'next/link';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Generate = () => {
     const [link, setLink] = useState("");
@@ -27,9 +28,18 @@ const Generate = () => {
             .then((result) => {
                 setLink("");
                 setKeyword("");
-                setGenerated(`${process.env.NEXT_PUBLIC_HOST}/${keyword}`);
                 console.log(result)
-                alert(result.message)
+                if(result.success){
+                    toast.success("Link generated successfully!", {
+                        position: "bottom-left"
+                    });
+                    setGenerated(`${process.env.NEXT_PUBLIC_HOST}/${keyword}`);
+                }else{
+                    toast.error("Keyword is already used", {
+                        position: "bottom-left"
+                    });
+                    setGenerated("");
+                }
             })
             .catch((error) => console.error(error));
     }
@@ -53,7 +63,7 @@ const Generate = () => {
                 </div>
                 
             </div>
-
+            <ToastContainer />
 
         </>
     )
