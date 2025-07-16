@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <div className="grid sm:grid-cols-2 grid-rows-2 lg:w-[80vw] lg:mx-auto mt-10 px-4 min-h-[85vh]">
+      <div className="grid sm:grid-cols-2 sm:grid-rows-1 grid-cols-1 grid-rows-2 lg:w-[80vw] lg:mx-auto mt-10 px-4 min-h-[85vh]">
         <div className="flex flex-col justify-center">
           <h1 className="lg:text-5xl md:text-4xl text-3xl font-bold text-gray-800">Welcome to BitLinks</h1>
           <p className="mt-4 md:text-lg text-md font text-gray-800">Your go-to solution for shortening URLs effortlessly.</p>
